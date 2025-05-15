@@ -1,8 +1,10 @@
 <div align="center">
-    <h1>thesi</h1>
-    <h4>An Interactive Offline Thesaurus CLI Tool</h4>
-    <h3>Chase Synonyms!</h3>
+    <h1>ThesChain</h1>
+    <h3>An Interactive Offline Thesaurus CLI Tool</h3>
+    <h2>⮎ <kbd>Search</kbd> › <kbd>Select</kbd> › <kbd>Repeat</kbd> ⮌ </h2>
+    <h3>forming a continuous chain of lookups</h3>
     <img src="./demo.gif" alt="demo" width="90%" />
+    <h6>built on <a href="https://github.com/grantshandy/thes">github.com/grantshandy/thes</a></h6>
 </div>
 
 ## Requirements
@@ -46,18 +48,22 @@ scoop install charm-gum
 
 ```bash
 # Clone the repo
-git clone git@github.com:metaory/thesi.git
+git clone git@github.com:metaory/theschain.git
 
 # Navigate to repo
-cd thesi
+cd theschain
 
 # Give execution permissions
-chmod +x thesi
+chmod +x theschain
 
 # Link it somewhere in your PATH
-ln -svf $PWD/thesi /usr/bin/thesi
+ln -svf $PWD/theschain /usr/bin/theschain
 
 # Use it anywhere
-thesi void
+theschain void
 ```
+
+## License
+
+[GNU GPLv3](LICENSE)
 
