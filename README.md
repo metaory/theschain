@@ -10,6 +10,16 @@
 - [github.com/grantshandy/thes](https://github.com/grantshandy/thes)
 - [github.com/charmbracelet/gum](https://github.com/charmbracelet/gum)
 
+### Thes
+
+```bash
+# Native
+cargo install thes
+
+# Arch Linux (btw)
+yay -S thes-git
+```
+
 ### Gum
 
 ```bash
@@ -30,16 +40,6 @@ flox install gum
 # Windows (via WinGet or Scoop)
 winget install charmbracelet.gum
 scoop install charm-gum
-```
-
-### Thes
-
-```bash
-# Native
-cargo install thes
-
-# Arch Linux (btw)
-yay -S thes-git
 ```
 
 ## Installation
