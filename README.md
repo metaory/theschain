@@ -1,7 +1,7 @@
 <div align="center">
     <h1>ThesChain</h1>
     <h3>An Interactive Offline Thesaurus CLI Tool</h3>
-    <h2>⮎ <kbd>Search</kbd> › <kbd>Select</kbd> › <kbd>Repeat</kbd> ⮌ </h2>
+    <h2> ⥹ <kbd>Search</kbd> › <kbd>Select</kbd> › <kbd>Repeat</kbd> ⥻</h2>
     <h3>forming a continuous chain of lookups</h3>
     <img src="./demo.gif" alt="demo" width="90%" />
     <h6>built on <a href="https://github.com/grantshandy/thes">github.com/grantshandy/thes</a></h6>
