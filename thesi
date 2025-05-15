@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# shellcheck disable=SC2034
+
+read -r HEIGHT < <(bc <<< "scale=0;l=$(tput lines);l/3+l/2")
+
+set -a
+GUM_INPUT_PLACEHOLDER=query
+GUM_INPUT_HEADER='█░ Query ░'
+GUM_INPUT_HEADER_FOREGROUND=0
+GUM_INPUT_HEADER_BACKGROUND=2
+GUM_FILTER_HEIGHT=$HEIGHT
+GUM_FILTER_PLACEHOLDER_FOREGROUND=5
+GUM_FILTER_MATCH_BACKGROUND=16
+GUM_FILTER_MATCH_FOREGROUND=3
+GUM_FILTER_PROMPT_FOREGROUND=2
+GUM_FILTER_TEXT_FOREGROUND=62
+GUM_FILTER_CURSOR_TEXT_BACKGROUND=16
+GUM_FILTER_CURSOR_TEXT_FOREGROUND=6
+GUM_FILTER_INDICATOR_FOREGROUND=6
+GUM_FILTER_INDICATOR='⦁'
+GUM_FILTER_PROMPT='❯ '
+GUM_FILTER_SELECTED_PREFIX_BACKGROUND=
+GUM_FILTER_SELECTED_PREFIX_FOREGROUND=6
+
+GUM_CONFIRM_SELECTED_BACKGROUND=2
+GUM_CONFIRM_SELECTED_FOREGROUND=3
+set +a
+
+trap exit INT
+
+QUERY="${*:-$(gum input)}"
+
+declare -a PICKS=()
+
+gum log -l warn "╭─╴ $QUERY ╶─ ╴"
+
+function pushstate {
+  PICKS+=("$*")
+  gum log -l info "├╴ ${*}"
+}
+
+function mainloop {
+  mapfile -t RES < <(thes "$*" 2>/dev/null)
+
+  ! (("${#RES[@]}")) && exit
+
+  next="$(printf '%s\n' "${RES[@]}" | gum filter)"
+
+  [ -z "$next" ] && exit
+
+  pushstate "$next"
+
+  mainloop "$next"
+}
+
+mainloop "$QUERY"
